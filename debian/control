@@ -1,0 +1,12 @@
+Source: hrpsys-base
+Priority: extra
+Maintainer: Thomas Moulard <thomas.moulard@gmail.com>
+Build-Depends: debhelper (>= 7.0.50), cmake (>= 2.6),
+	       doxygen (>= 1.6.3),
+	       graphviz,
+	       libboost-all-dev
+Standards-Version: 3.9.3
+Section: contrib/science
+Homepage: http://code.google.com/p/hrpsys-base/
+Vcs-Git: git://github.com/thomas-moulard/hrpsys-base-deb.git
+Vcs-Browser: https://github.com/thomas-moulard/hrpsys-base-deb

@@ -1,0 +1,23 @@
+This work was packaged for Debian by:
+
+    Thomas Moulard <thomas.moulard@gmail.com> on Mon, 03 Dec 2012 16:39:00 +0900
+
+It was downloaded from http://www.openrtm.org/
+
+Upstream Authors:
+
+    FIXME
+
+Copyright:
+
+    FIXME
+
+License:
+
+    FIXME
+
+The Debian packaging is:
+
+    Copyright (C) 2010-2012 Thomas Moulard <thomas.moulard@gmail.com>
+    and is licensed under the GPL version 3,
+    see `/usr/share/common-licenses/GPL-3'.
