@@ -6,14 +6,19 @@ Build-Depends: debhelper (>= 7.0.50), cmake (>= 2.6),
 	       graphviz,
 	       libboost-all-dev,
 	       jython,
+	       libeigen3-dev,
 	       libxml2-dev,
 	       libsdl-dev,
 	       libopencv-dev,
 	       libopencv-highgui-dev,
 	       libqhull-dev,
 	       libglew-dev,
+	       freeglut3-dev,
+	       libxmu-dev,
 	       libirrlicht-dev,
-	       liboctomap-dev
+	       openjdk-6-jdk,
+	       libopenrtm-aist-dev,
+	       openhrp-dev
 Standards-Version: 3.9.3
 Section: contrib/science
 Homepage: http://code.google.com/p/hrpsys-base/
