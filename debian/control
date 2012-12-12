@@ -4,9 +4,48 @@ Maintainer: Thomas Moulard <thomas.moulard@gmail.com>
 Build-Depends: debhelper (>= 7.0.50), cmake (>= 2.6),
 	       doxygen (>= 1.6.3),
 	       graphviz,
-	       libboost-all-dev
+	       libboost-all-dev,
+	       jython,
+	       libxml2-dev,
+	       libsdl-dev,
+	       libopencv-dev,
+	       libopencv-highgui-dev,
+	       libqhull-dev,
+	       libglew-dev,
+	       libirrlicht-dev,
+	       liboctomap-dev
 Standards-Version: 3.9.3
 Section: contrib/science
 Homepage: http://code.google.com/p/hrpsys-base/
 Vcs-Git: git://github.com/thomas-moulard/hrpsys-base-deb.git
 Vcs-Browser: https://github.com/thomas-moulard/hrpsys-base-deb
+
+Package: hrpsys-base
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: RT components and utilities to control robots using OpenRTM
+ Provides real-time robotics components for humanoid robot control.
+ It relies on OpenRTM for components model and communication and on
+ OpenHRP for simulation.
+
+Package: hrpsys-base-dev
+Architecture: any
+Section: contrib/devel
+Depends: hrpsys-base (= ${binary:Version}), ${misc:Depends}
+Description: Integrated software platform for robot simulation (development files)
+ Provides real-time robotics components for humanoid robot control.
+ It relies on OpenRTM for components model and communication and on
+ OpenHRP for simulation.
+ .
+ This package gathers development files required to use Hrpsys-Base API.
+
+Package: hrpsys-base-dbg
+Architecture: any
+Section: contrib/debug
+Depends: hrpsys-base (= ${binary:Version}), ${misc:Depends}
+Description: Integrated software platform for robot simulation (debugging files)
+ Provides real-time robotics components for humanoid robot control.
+ It relies on OpenRTM for components model and communication and on
+ OpenHRP for simulation.
+ .
+ This package contains the debugging symbols.
