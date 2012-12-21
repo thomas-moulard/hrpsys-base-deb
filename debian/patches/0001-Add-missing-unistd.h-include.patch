@@ -1,7 +1,9 @@
 From: Thomas Moulard <thomas.moulard@gmail.com>
 Date: Wed, 12 Dec 2012 14:00:54 +0900
-Subject: [PATCH] Add missing unistd.h include.
+Subject: Add missing unistd.h include.
 
+Forwarded: no
+Author: Thomas Moulard <thomas.moulard@gmail.com>
 ---
  lib/util/Project.cpp |    1 +
  1 files changed, 1 insertions(+), 0 deletions(-)

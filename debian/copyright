@@ -1,23 +1,25 @@
-This work was packaged for Debian by:
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: hrpsys-base
+Upstream-Contact: http://code.google.com/p/hrpsys-base/
+Source: http://code.google.com/p/hrpsys-base/
 
-    Thomas Moulard <thomas.moulard@gmail.com> on Mon, 03 Dec 2012 16:39:00 +0900
+Files: *
+Copyright: 2008-2012 The National Institute of Advanced Industrial Science and Technology (AIST), University of Tokyo, General Robotix, Inc
+License: EPL
+ This software(OpenHRP3) is distributed under "Eclipse Public License" (EPL)
+ v1.0, and you are allowed to use OpenHRP3, only if you agree with these
+ license conditions. Further, it is considered that you agreed with our
+ license conditions whenever you download, use or distribute this software.
+ .
+ Please visit Eclipse Foundation website for more details abour "Eclipse
+ Public License" v1.0.(FAQ of EPL can be viewed at,
+ http://www.eclipse.org/legal/eplfaq.php#EPLVERSION)
+ .
+ In case any other uses of this software, such as building a derivative
+ binary package and distributing for proprietary use, please consult National
+ Institute of Advanced Industrial Science and Technology (AIST) in advance.
 
-It was downloaded from http://www.openrtm.org/
-
-Upstream Authors:
-
-    FIXME
-
-Copyright:
-
-    FIXME
-
-License:
-
-    FIXME
-
-The Debian packaging is:
-
-    Copyright (C) 2010-2012 Thomas Moulard <thomas.moulard@gmail.com>
-    and is licensed under the GPL version 3,
-    see `/usr/share/common-licenses/GPL-3'.
+Files: debian/*
+Copyright: 2012 Thomas Moulard <thomas.moulard@gmail.com>
+License: GPL-3
+ See `/usr/share/common-licenses/GPL-3'.
