@@ -1,0 +1,4 @@
+usr/include/hrpsys/*
+usr/lib/*/pkgconfig/*
+usr/share/hrpsys/*
+usr/share/doc/*
