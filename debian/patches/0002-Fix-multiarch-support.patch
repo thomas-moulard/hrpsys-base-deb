@@ -1,0 +1,344 @@
+From: Thomas Moulard <thomas.moulard@gmail.com>
+Date: Fri, 21 Dec 2012 22:35:55 +0900
+Subject: Fix multiarch support.
+
+Forwarded: no
+Author: Thomas Moulard <thomas.moulard@gmail.com>
+---
+ lib/io/CMakeLists.txt                     |    3 ++-
+ lib/util/CMakeLists.txt                   |    3 ++-
+ rtc/CameraImageViewer/CMakeLists.txt      |    3 ++-
+ rtc/CollisionDetector/CMakeLists.txt      |    3 ++-
+ rtc/DataLogger/CMakeLists.txt             |    3 ++-
+ rtc/ForwardKinematics/CMakeLists.txt      |    3 ++-
+ rtc/GraspController/CMakeLists.txt        |    3 ++-
+ rtc/HGcontroller/CMakeLists.txt           |    3 ++-
+ rtc/ImpedanceController/CMakeLists.txt    |    3 ++-
+ rtc/Joystick/CMakeLists.txt               |    3 ++-
+ rtc/Joystick2PanTiltAngles/CMakeLists.txt |    3 ++-
+ rtc/Joystick2Velocity2D/CMakeLists.txt    |    3 ++-
+ rtc/JpegDecoder/CMakeLists.txt            |    3 ++-
+ rtc/NullComponent/CMakeLists.txt          |    3 ++-
+ rtc/OccupancyGridMap3D/CMakeLists.txt     |    3 ++-
+ rtc/RobotHardware/CMakeLists.txt          |    3 ++-
+ rtc/SequencePlayer/CMakeLists.txt         |    3 ++-
+ rtc/Simulator/CMakeLists.txt              |    3 ++-
+ rtc/SoftErrorLimiter/CMakeLists.txt       |    3 ++-
+ rtc/StateHolder/CMakeLists.txt            |    3 ++-
+ rtc/VideoCapture/CMakeLists.txt           |    3 ++-
+ rtc/Viewer/CMakeLists.txt                 |    3 ++-
+ rtc/VirtualCamera/CMakeLists.txt          |    3 ++-
+ rtc/VirtualForceSensor/CMakeLists.txt     |    3 ++-
+ rtc/WavPlayer/CMakeLists.txt              |    3 ++-
+ 25 files changed, 50 insertions(+), 25 deletions(-)
+
+diff --git a/lib/io/CMakeLists.txt b/lib/io/CMakeLists.txt
+index 0057e3f..b6d6e58 100644
+--- a/lib/io/CMakeLists.txt
++++ b/lib/io/CMakeLists.txt
+@@ -10,7 +10,8 @@ set(target hrpIo)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+ install(FILES ${headers} DESTINATION include/hrpsys/io)
+diff --git a/lib/util/CMakeLists.txt b/lib/util/CMakeLists.txt
+index dae04e1..b14e72a 100644
+--- a/lib/util/CMakeLists.txt
++++ b/lib/util/CMakeLists.txt
+@@ -59,7 +59,8 @@ set(target hrpsysUtil)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+ install(FILES ${headers} DESTINATION include/hrpsys/util)
+diff --git a/rtc/CameraImageViewer/CMakeLists.txt b/rtc/CameraImageViewer/CMakeLists.txt
+index a122c92..e5d9984 100644
+--- a/rtc/CameraImageViewer/CMakeLists.txt
++++ b/rtc/CameraImageViewer/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target CameraImageViewer CameraImageViewerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/CollisionDetector/CMakeLists.txt b/rtc/CollisionDetector/CMakeLists.txt
+index a90e2a6..4e0c2fe 100644
+--- a/rtc/CollisionDetector/CMakeLists.txt
++++ b/rtc/CollisionDetector/CMakeLists.txt
+@@ -18,5 +18,6 @@ set(target CollisionDetector CollisionDetectorComp SetupCollisionPair)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/DataLogger/CMakeLists.txt b/rtc/DataLogger/CMakeLists.txt
+index 29dcd79..88b5e09 100644
+--- a/rtc/DataLogger/CMakeLists.txt
++++ b/rtc/DataLogger/CMakeLists.txt
+@@ -11,6 +11,7 @@ set(target DataLogger DataLoggerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+diff --git a/rtc/ForwardKinematics/CMakeLists.txt b/rtc/ForwardKinematics/CMakeLists.txt
+index 1fc8fba..0df2851 100644
+--- a/rtc/ForwardKinematics/CMakeLists.txt
++++ b/rtc/ForwardKinematics/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target ForwardKinematics ForwardKinematicsComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/GraspController/CMakeLists.txt b/rtc/GraspController/CMakeLists.txt
+index 33dd79e..8c35455 100644
+--- a/rtc/GraspController/CMakeLists.txt
++++ b/rtc/GraspController/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target GraspController GraspControllerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/HGcontroller/CMakeLists.txt b/rtc/HGcontroller/CMakeLists.txt
+index 0d171c4..2124700 100644
+--- a/rtc/HGcontroller/CMakeLists.txt
++++ b/rtc/HGcontroller/CMakeLists.txt
+@@ -10,5 +10,6 @@ set(target HGcontroller HGcontrollerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/ImpedanceController/CMakeLists.txt b/rtc/ImpedanceController/CMakeLists.txt
+index d153027..7d002b4 100644
+--- a/rtc/ImpedanceController/CMakeLists.txt
++++ b/rtc/ImpedanceController/CMakeLists.txt
+@@ -11,6 +11,7 @@ set(target ImpedanceController ImpedanceControllerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+diff --git a/rtc/Joystick/CMakeLists.txt b/rtc/Joystick/CMakeLists.txt
+index ffcbbdf..0539def 100644
+--- a/rtc/Joystick/CMakeLists.txt
++++ b/rtc/Joystick/CMakeLists.txt
+@@ -17,5 +17,6 @@ set(target Joystick JoystickComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/Joystick2PanTiltAngles/CMakeLists.txt b/rtc/Joystick2PanTiltAngles/CMakeLists.txt
+index 10dfe21..a1883ec 100644
+--- a/rtc/Joystick2PanTiltAngles/CMakeLists.txt
++++ b/rtc/Joystick2PanTiltAngles/CMakeLists.txt
+@@ -9,5 +9,6 @@ set(target Joystick2PanTiltAngles Joystick2PanTiltAnglesComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/Joystick2Velocity2D/CMakeLists.txt b/rtc/Joystick2Velocity2D/CMakeLists.txt
+index 098698b..4beef35 100644
+--- a/rtc/Joystick2Velocity2D/CMakeLists.txt
++++ b/rtc/Joystick2Velocity2D/CMakeLists.txt
+@@ -9,5 +9,6 @@ set(target Joystick2Velocity2D Joystick2Velocity2DComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/JpegDecoder/CMakeLists.txt b/rtc/JpegDecoder/CMakeLists.txt
+index 1d7cfe5..493fa3b 100644
+--- a/rtc/JpegDecoder/CMakeLists.txt
++++ b/rtc/JpegDecoder/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target JpegDecoder JpegDecoderComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/NullComponent/CMakeLists.txt b/rtc/NullComponent/CMakeLists.txt
+index d6240a5..f50410d 100644
+--- a/rtc/NullComponent/CMakeLists.txt
++++ b/rtc/NullComponent/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target NullComponent NullComponentComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/OccupancyGridMap3D/CMakeLists.txt b/rtc/OccupancyGridMap3D/CMakeLists.txt
+index ee9d442..1f7fadb 100644
+--- a/rtc/OccupancyGridMap3D/CMakeLists.txt
++++ b/rtc/OccupancyGridMap3D/CMakeLists.txt
+@@ -13,5 +13,6 @@ set(target OccupancyGridMap3D OccupancyGridMap3DComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/RobotHardware/CMakeLists.txt b/rtc/RobotHardware/CMakeLists.txt
+index 1bbe2b7..180bb21 100644
+--- a/rtc/RobotHardware/CMakeLists.txt
++++ b/rtc/RobotHardware/CMakeLists.txt
+@@ -13,6 +13,7 @@ set(target RobotHardware RobotHardwareComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+diff --git a/rtc/SequencePlayer/CMakeLists.txt b/rtc/SequencePlayer/CMakeLists.txt
+index 5cd7304..2c5d581 100644
+--- a/rtc/SequencePlayer/CMakeLists.txt
++++ b/rtc/SequencePlayer/CMakeLists.txt
+@@ -11,6 +11,7 @@ set(target SequencePlayer SequencePlayerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+diff --git a/rtc/Simulator/CMakeLists.txt b/rtc/Simulator/CMakeLists.txt
+index f555b54..0b904af 100644
+--- a/rtc/Simulator/CMakeLists.txt
++++ b/rtc/Simulator/CMakeLists.txt
+@@ -14,5 +14,6 @@ set(target Simulator SimulatorComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/SoftErrorLimiter/CMakeLists.txt b/rtc/SoftErrorLimiter/CMakeLists.txt
+index 5e31d43..7447138 100644
+--- a/rtc/SoftErrorLimiter/CMakeLists.txt
++++ b/rtc/SoftErrorLimiter/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target SoftErrorLimiter SoftErrorLimiterComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/StateHolder/CMakeLists.txt b/rtc/StateHolder/CMakeLists.txt
+index 64a8f41..be6e4e6 100644
+--- a/rtc/StateHolder/CMakeLists.txt
++++ b/rtc/StateHolder/CMakeLists.txt
+@@ -11,6 +11,7 @@ set(target StateHolder StateHolderComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+diff --git a/rtc/VideoCapture/CMakeLists.txt b/rtc/VideoCapture/CMakeLists.txt
+index cd2f1dc..ae8e838 100644
+--- a/rtc/VideoCapture/CMakeLists.txt
++++ b/rtc/VideoCapture/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target VideoCapture VideoCaptureComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/Viewer/CMakeLists.txt b/rtc/Viewer/CMakeLists.txt
+index 10919da..23a526a 100644
+--- a/rtc/Viewer/CMakeLists.txt
++++ b/rtc/Viewer/CMakeLists.txt
+@@ -19,5 +19,6 @@ set(target Viewer ViewerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/VirtualCamera/CMakeLists.txt b/rtc/VirtualCamera/CMakeLists.txt
+index 4d6e145..dde1b72 100644
+--- a/rtc/VirtualCamera/CMakeLists.txt
++++ b/rtc/VirtualCamera/CMakeLists.txt
+@@ -17,5 +17,6 @@ set(target VirtualCamera VirtualCameraComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/VirtualForceSensor/CMakeLists.txt b/rtc/VirtualForceSensor/CMakeLists.txt
+index a36861a..b53083a 100644
+--- a/rtc/VirtualForceSensor/CMakeLists.txt
++++ b/rtc/VirtualForceSensor/CMakeLists.txt
+@@ -11,5 +11,6 @@ set(target VirtualForceSensor VirtualForceSensorComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+diff --git a/rtc/WavPlayer/CMakeLists.txt b/rtc/WavPlayer/CMakeLists.txt
+index a343b58..bd94f8d 100644
+--- a/rtc/WavPlayer/CMakeLists.txt
++++ b/rtc/WavPlayer/CMakeLists.txt
+@@ -11,6 +11,7 @@ set(target WavPlayer WavPlayerComp)
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
