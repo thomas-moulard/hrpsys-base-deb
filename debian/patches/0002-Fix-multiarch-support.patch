@@ -5,6 +5,9 @@ Subject: Fix multiarch support.
 Forwarded: no
 Author: Thomas Moulard <thomas.moulard@gmail.com>
 ---
+ CMakeLists.txt                            |    2 +-
+ ec/hrpEC/CMakeLists.txt                   |    3 ++-
+ idl/CMakeLists.txt                        |    3 ++-
  lib/io/CMakeLists.txt                     |    3 ++-
  lib/util/CMakeLists.txt                   |    3 ++-
  rtc/CameraImageViewer/CMakeLists.txt      |    3 ++-
@@ -30,8 +33,49 @@ Author: Thomas Moulard <thomas.moulard@gmail.com>
  rtc/VirtualCamera/CMakeLists.txt          |    3 ++-
  rtc/VirtualForceSensor/CMakeLists.txt     |    3 ++-
  rtc/WavPlayer/CMakeLists.txt              |    3 ++-
- 25 files changed, 50 insertions(+), 25 deletions(-)
+ 28 files changed, 55 insertions(+), 28 deletions(-)
 
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index af8a93d..60eb32c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -99,7 +99,7 @@ find_package(QuickHull REQUIRED)
+ configure_file(hrpsys-base.pc.in ${CMAKE_CURRENT_BINARY_DIR}/hrpsys-base.pc @ONLY)
+ install(FILES
+   ${CMAKE_CURRENT_BINARY_DIR}/hrpsys-base.pc
+-  DESTINATION lib/pkgconfig)
++  DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}/pkgconfig)
+ 
+ add_subdirectory(jython)
+ add_subdirectory(python)
+diff --git a/ec/hrpEC/CMakeLists.txt b/ec/hrpEC/CMakeLists.txt
+index 7ef7a81..aff6c60 100644
+--- a/ec/hrpEC/CMakeLists.txt
++++ b/ec/hrpEC/CMakeLists.txt
+@@ -20,7 +20,8 @@ set_target_properties(hrpEC PROPERTIES PREFIX "")
+ 
+ install(TARGETS ${target}
+   RUNTIME DESTINATION bin CONFIGURATIONS Release Debug
+-  LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++  LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++  CONFIGURATIONS Release Debug
+ )
+ 
+ 
+diff --git a/idl/CMakeLists.txt b/idl/CMakeLists.txt
+index b73171f..f6e16b6 100644
+--- a/idl/CMakeLists.txt
++++ b/idl/CMakeLists.txt
+@@ -78,7 +78,8 @@ add_library(${target} SHARED ${sources})
+ target_link_libraries(${target} ${OPENRTM_LIBRARIES})
+ 
+ install(TARGETS ${target}
+-	LIBRARY DESTINATION lib CONFIGURATIONS Release Debug
++	LIBRARY DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}
++	CONFIGURATIONS Release Debug
+ )
+ 
+ install(FILES ${jarfile} DESTINATION share/hrpsys/jar)
 diff --git a/lib/io/CMakeLists.txt b/lib/io/CMakeLists.txt
 index 0057e3f..b6d6e58 100644
 --- a/lib/io/CMakeLists.txt
